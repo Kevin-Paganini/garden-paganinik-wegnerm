@@ -53,7 +53,7 @@ public class GardenController {
     }
 
     // display the bee at the (beeXLocation, YLocation), ensuring the bee does not leave the garden
-    private void displayBee(double Xlocation, double YLocation) {
+    private void displayBee(double XLocation, double YLocation) {
         if (XLocation < 0 )
             XLocation = 0;
         else if (theGarden.getWidth() > 0 && XLocation > theGarden.getWidth() - 10)
