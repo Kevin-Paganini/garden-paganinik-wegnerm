@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" onKeyPressed="#onKeyPressed" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paganinik.GardenController">
+<GridPane alignment="center" hgap="10" onKeyPressed="#moveBees" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="paganinik.GardenController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -23,6 +23,7 @@
             <Label layoutX="310.0" layoutY="72.0" text="Thief Flowers" />
             <Label layoutX="307.0" layoutY="34.0" text="Medic Flowers" />
             <Label layoutX="55.0" layoutY="72.0" text="Destroyer Bees" />
+            <Button layoutX="258.0" layoutY="93.0" mnemonicParsing="false" text="Button" />
          </children>
       </Pane>
    </children>

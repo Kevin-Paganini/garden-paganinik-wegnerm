@@ -10,6 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.event.ActionEvent;
+import sun.security.krb5.internal.crypto.Des;
 
 import java.util.ArrayList;
 
@@ -67,19 +68,19 @@ public class GardenController {
         beeImageBox.setLayoutY(YLocation);
     }
 
-    @FXML
-    public void onKeyPressed(KeyEvent keyEvent) {
-        if (keyEvent.getCode() == KeyCode.RIGHT) {
-            XLocation += 10.0;
-        } else if (keyEvent.getCode() == KeyCode.LEFT) {
-            XLocation -= 10.0;
-        } else if (keyEvent.getCode() == KeyCode.DOWN) {
-            YLocation += 10.0;
-        } else if (keyEvent.getCode() == KeyCode.UP) {
-            YLocation -= 10.0;
-        }
-        displayBee(XLocation, YLocation);
-    }
+//    @FXML
+//    public void onKeyPressed(KeyEvent keyEvent) {
+//        if (keyEvent.getCode() == KeyCode.RIGHT) {
+//            XLocation += 10.0;
+//        } else if (keyEvent.getCode() == KeyCode.LEFT) {
+//            XLocation -= 10.0;
+//        } else if (keyEvent.getCode() == KeyCode.DOWN) {
+//            YLocation += 10.0;
+//        } else if (keyEvent.getCode() == KeyCode.UP) {
+//            YLocation -= 10.0;
+//        }
+//        displayBee(XLocation, YLocation);
+//    }
 
 
 
@@ -110,7 +111,7 @@ public class GardenController {
             beeImage.setPreserveRatio(true);    // ensure ratio preserved when scaling the bee
             beeImage.setFitWidth(50.0);         // scale bee to be a reasonable size
             Label beeLabel = new Label();       // you might make this an attribute of another class so you can update it
-            beeLabel.setText("Some Bee");
+            beeLabel.setText("Flower Bee");
             beeLabel.setStyle("-fx-text-fill: blue;");
             beeImageBox = new VBox();
             beeImageBox.getChildren().add(beeImage);
@@ -130,7 +131,7 @@ public class GardenController {
             beeImage.setPreserveRatio(true);    // ensure ratio preserved when scaling the bee
             beeImage.setFitWidth(50.0);         // scale bee to be a reasonable size
             Label beeLabel = new Label();       // you might make this an attribute of another class so you can update it
-            beeLabel.setText("Some Bee");
+            beeLabel.setText("Destroyer Bee");
             beeLabel.setStyle("-fx-text-fill: blue;");
             beeImageBox = new VBox();
             beeImageBox.getChildren().add(beeImage);
@@ -147,7 +148,7 @@ public class GardenController {
             flowerImage.setPreserveRatio(true);    // ensure ratio preserved when scaling the bee
             flowerImage.setFitWidth(50.0);         // scale bee to be a reasonable size
             Label flowerLabel = new Label();       // you might make this an attribute of another class so you can update it
-            flowerLabel.setText("Some Flower");
+            flowerLabel.setText("Thief Flower");
             flowerLabel.setStyle("-fx-text-fill: blue;");
             flowerImageBox = new VBox();
             flowerImageBox.getChildren().add(flowerImage);
@@ -166,7 +167,7 @@ public class GardenController {
             flowerImage.setPreserveRatio(true);    // ensure ratio preserved when scaling the bee
             flowerImage.setFitWidth(50.0);         // scale bee to be a reasonable size
             Label flowerLabel = new Label();       // you might make this an attribute of another class so you can update it
-            flowerLabel.setText("Some Flower");
+            flowerLabel.setText("Medic Flower");
             flowerLabel.setStyle("-fx-text-fill: blue;");
             flowerImageBox = new VBox();
             flowerImageBox.getChildren().add(flowerImage);
@@ -178,6 +179,23 @@ public class GardenController {
             flowerImageBox.setLayoutX(XLocation);
             flowerImageBox.setLayoutY(YLocation);
         }
+    }
+
+    @FXML
+    public void moveBees(KeyEvent keyEvent){
+        ArrayList<DestroyerBee> destroyerBees = garden_bee_flower_controller.getDestroyerBees();
+        ArrayList<FlowerBee> flowerBees = garden_bee_flower_controller.getFlowerBees();
+        if (keyEvent.getCode() == KeyCode.RIGHT){
+            System.out.println("we in here");
+            for(int i = 0; i < destroyerBees.size(); i++){
+                destroyerBees.get(i).moveBee();
+            }
+            for(int i = 0; i < flowerBees.size(); i++){
+                flowerBees.get(i).moveBee();
+            }
+            displayAll();
+        }
+
     }
 
 }

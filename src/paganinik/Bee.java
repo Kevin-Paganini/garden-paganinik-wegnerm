@@ -9,6 +9,9 @@ public abstract class Bee {
     private int health;
     private double x;
     private double y;
+    public int MAX_WIDTH = 550;
+    public int MAX_HEIGHT = 550;
+
 
     public Bee() {
         this.health = (int) Math.random() * 50;
@@ -27,5 +30,11 @@ public abstract class Bee {
         return y;
     }
 
+    public void setX(double X){
+        this.x = X;
+    }
+    public void setY(double Y){
+        this.y = Y;
+    }
 
 }
